@@ -57,7 +57,8 @@
     <div class="row mb-5 justify-content-center"> <!-- linha formulario -->
       <div class="col-sm-12 col-md-10 col-lg-8">
 
-        <form action="">
+      <!--  <form action=""> -->
+        
           <div class="form-row mb-3">
 
             <div class="from-group col-sm-6">
@@ -120,22 +121,18 @@
 
           <div class="form-row">
             <div class="col-sm-12">
-              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button id="add"  class="btn btn-primary">Enviar</button>
             </div> <!-- fechando col-sm-12 -->
           </div> <!-- fechando row -->
 
-
           </div> <!-- fechando linha -->
-        </form>
-
       </div> <!-- fechando coluna -->
     </div> <!-- fechando linha formulario -->
   </div> <!-- fechando container -->
 
 <!-- Fim formulario -->
-  <div class="container">
-    <table class="table">
-      <thead>
+  <div class="container my-5">
+    <table class="table" id="tabela">
         <tr>
           <th scope="col">Disciplina</th>
           <th scope="col">Professor</th>
@@ -143,21 +140,20 @@
           <th scope="col">Bloco</th>
           <th scope="col">Horario</th>
         </tr>
-      </thead>
-      <tbody>
+        <tr>
 
-        <tr> <td></td> </tr>
-
-      </tbody>
+        </tr>
     </table>
   </div>
 
 
         <!-- Optional JavaScript -->
+        <script src="adicionarRegistro.js"></script>
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+        
 </body>
 
 </html>
