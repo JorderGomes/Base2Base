@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css">
+  
+  <!-- Meu CSS -->
+  <link rel="stylesheet" href="node_modules/bootstrap/compiler/estilo.css">
+  <title>Curso de bootstrap 4</title>
+</head>
+
+<body>
+  <!-- Inicio do título e navbar -->
+  <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <div class="container"> 
+      <a class="navbar-brand h1 mb-0" href="index.html">Saloc</a>
+      
+      <!-- Botão do menu -->
+      <button class="navbar-toggler" type="button" 
+      data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSite">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> 
+              <a class="nav-link" href="#">Cadastro</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Cardápio</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sobre</a>
+            </li>
+          </ul> 
+      </div> <!-- fechando navbar site -->
+    </div> <!-- fechando container -->
+  </nav>
+<!-- Fim do título e navbar -->
+
+
+<!-- Inicio fomulario -->
+
+  <div class="container my-5">
+
+    <div class="row mb-5 justify-content-center"> <!-- linha formulario -->
+      <div class="col-sm-12 col-md-10 col-lg-8">
+
+        <form action="">
+          <div class="form-row mb-3">
+
+            <div class="from-group col-sm-6">
+              <label for="inputDisciplina">Disciplina</label>
+              <input type="text" class="form-control" id="inputDisciplina" placeholder="Disciplina">
+            </div> <!-- fechando form-group -->
+
+            <div class="from-group col-sm-6">
+              <label for="inputProfessor">Professor</label>
+              <input type="text" class="form-control" id="inputProfessor" placeholder="Professor">
+
+            </div> <!-- fechando form-group -->
+          </div> <!-- fechando row -->
+
+          <div class="form-row mb-3">
+
+            <div class="from-group col-sm-4">
+              <label for="inputSala">Sala</label>
+              <select class="form-control" id="inputSala">
+
+                <option value="" selected>Escolha...</option>
+                <option>Sala 1</option>
+                <option>Sala 2</option>
+                <option>Sala 3</option>
+                <option>Sala 4</option>
+                
+
+              </select>
+            </div> <!-- fechando form-group -->
+
+            <div class="from-group col-sm-4">
+              <label for="inputBloco">Bloco</label>
+              <select class="form-control" id="inputBloco">
+
+                <option value="" selected>Escolha...</option>
+                <option>Bloco 1</option>
+                <option>Bloco 2</option>
+                <option>Bloco 3</option>
+                <option>Bloco 4</option>
+                
+              </select>
+            </div> <!-- fechando form-group -->
+
+            <div class="from-group col-sm-4">
+              <label for="inputHorario">Horário</label>
+              <select class="form-control" id="inputHorario">
+
+                <option value="" selected>Escolha...</option>
+                <option>08:00 - 10:00</option>
+                <option>10:00 - 12:00</option>
+                <option>13:30 - 15:30</option>
+                <option>15:30 - 17:30</option>
+                <option>18:00 - 20:00</option>
+                <option>20:00 - 22:00</option>
+                
+              </select>
+            </div> <!-- fechando form-group -->
+          
+          </div> <!-- fechando row -->
+
+          <div class="form-row">
+            <div class="col-sm-12">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </div> <!-- fechando col-sm-12 -->
+          </div> <!-- fechando row -->
+
+
+          </div> <!-- fechando linha -->
+        </form>
+
+      </div> <!-- fechando coluna -->
+    </div> <!-- fechando linha formulario -->
+  </div> <!-- fechando container -->
+
+<!-- Fim formulario -->
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Disciplina</th>
+          <th scope="col">Professor</th>
+          <th scope="col">Sala</th>
+          <th scope="col">Bloco</th>
+          <th scope="col">Horario</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr> <td></td> </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="node_modules/jquery/dist/jquery.js"></script>
+        <script src="node_modules/popper.js/dist/umd/popper.js"></script>
+        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</body>
+
+</html>
