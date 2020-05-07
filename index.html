@@ -5,20 +5,24 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
+  <!-- Bootstrap CSS --> 
 
   <link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css">
   
   <!-- Meu CSS -->
   <link rel="stylesheet" href="node_modules/bootstrap/compiler/estilo.css">
-  <title>Curso de bootstrap 4</title>
+
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+  <link rel="icon" href="img/arrows-radius.png">
+  <title>Bin2Dec</title>
+  
 </head>
 
 <body>
   <!-- Inicio do título e navbar -->
   <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-dark bg-primary">
     <div class="container"> 
-      <a class="navbar-brand h1 mb-0" href="index.html">Saloc</a>
+      <a class="navbar-brand h1 mb-0" href="index.html">Bin2Dec</a>
       
       <!-- Botão do menu -->
       <button class="navbar-toggler" type="button" 
@@ -61,69 +65,50 @@
         
           <div class="form-row mb-3">
 
-            <div class="from-group col-sm-6">
-              <label for="inputDisciplina">Disciplina</label>
-              <input type="text" class="form-control" id="inputDisciplina" placeholder="Disciplina">
-            </div> <!-- fechando form-group -->
-
-            <div class="from-group col-sm-6">
-              <label for="inputProfessor">Professor</label>
-              <input type="text" class="form-control" id="inputProfessor" placeholder="Professor">
-
-            </div> <!-- fechando form-group -->
-          </div> <!-- fechando row -->
-
-          <div class="form-row mb-3">
-
-            <div class="from-group col-sm-4">
-              <label for="inputSala">Sala</label>
-              <select class="form-control" id="inputSala">
-
-                <option value="" selected>Escolha...</option>
-                <option>Sala 1</option>
-                <option>Sala 2</option>
-                <option>Sala 3</option>
-                <option>Sala 4</option>
-                
-
+            <div class="from-group col-5 text-center">
+              <!-- <label for="inputSala">De</label> -->
+              <select class="form-control" id="De">
+                <option>decimal</option>
+                <option>binario</option>
+                <option selected>octal</option>
               </select>
             </div> <!-- fechando form-group -->
 
-            <div class="from-group col-sm-4">
-              <label for="inputBloco">Bloco</label>
-              <select class="form-control" id="inputBloco">
-
-                <option value="" selected>Escolha...</option>
-                <option>Bloco 1</option>
-                <option>Bloco 2</option>
-                <option>Bloco 3</option>
-                <option>Bloco 4</option>
-                
-              </select>
+            <div class="from-group col-2 text-center">
+              <!-- <label for="inputBloco">Converter</label> -->
+              <button id="converter" class="btn btn-primary form-control">
+                 <i class="fa fa-exchange"></i>
+                 <!-- <i class="fa fa-arrows"></i> -->
+              </button>
             </div> <!-- fechando form-group -->
 
-            <div class="from-group col-sm-4">
-              <label for="inputHorario">Horário</label>
-              <select class="form-control" id="inputHorario">
-
-                <option value="" selected>Escolha...</option>
-                <option>08:00 - 10:00</option>
-                <option>10:00 - 12:00</option>
-                <option>13:30 - 15:30</option>
-                <option>15:30 - 17:30</option>
-                <option>18:00 - 20:00</option>
-                <option>20:00 - 22:00</option>
-                
+            <div class="from-group col-5 text-center">
+              <!-- <label for="inputHorario">Para</label> -->
+              <select class="form-control" id="Para">
+                <option selected>binario</option>
+                <option>decimal</option>
               </select>
             </div> <!-- fechando form-group -->
           
           </div> <!-- fechando row -->
 
-          <div class="form-row">
-            <div class="col-sm-12">
-              <button id="add"  class="btn btn-primary">Enviar</button>
-            </div> <!-- fechando col-sm-12 -->
+          <div class="form-row mb-3">
+
+            <div class="from-group col-sm-6 mb-3">
+              <!-- <label for="inputDisciplina">Disciplina</label> -->
+              <input type="number"  class="form-control" id="numero">
+            </div> <!-- fechando form-group -->
+
+            <div class="from-group col-sm-6">
+              <!-- <label for="inputProfessor">Professor</label> -->
+              <div id="resposta" class="form-control"></div>
+              <!-- <input type="number"  readonly class="form-control" id="resposta"> -->
+
+            </div> <!-- fechando form-group -->
+            
           </div> <!-- fechando row -->
+
+       
 
           </div> <!-- fechando linha -->
       </div> <!-- fechando coluna -->
@@ -131,28 +116,17 @@
   </div> <!-- fechando container -->
 
 <!-- Fim formulario -->
-  <div class="container my-5">
-    <table class="table" id="tabela">
-        <tr>
-          <th scope="col">Disciplina</th>
-          <th scope="col">Professor</th>
-          <th scope="col">Sala</th>
-          <th scope="col">Bloco</th>
-          <th scope="col">Horario</th>
-        </tr>
-        <tr>
-
-        </tr>
-    </table>
-  </div>
+ 
 
 
         <!-- Optional JavaScript -->
-        <script src="adicionarRegistro.js"></script>
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="node_modules/jquery/dist/jquery.js"></script>
         <script src="node_modules/popper.js/dist/umd/popper.js"></script>
         <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+        <script src="converter.js"></script>
         
 </body>
 
