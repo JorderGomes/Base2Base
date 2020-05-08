@@ -9,12 +9,19 @@ class baseNumerica{
 
 var bases = [
     new baseNumerica("binario", 2), 
+    new baseNumerica("base 3", 3), 
+    new baseNumerica("base 4", 4), 
+    new baseNumerica("base 5", 5), 
+    new baseNumerica("base 6", 6), 
+    new baseNumerica("base 7", 7), 
     new baseNumerica("octal", 8), 
-    new baseNumerica("decimal", 10)
+    new baseNumerica("base 9", 9), 
+    new baseNumerica("decimal", 10),
 ];
 
 var valorNum = document.getElementById("numero");
 var erBinario = /[0-1]/;
+var erGenerica;
 
 // ================================ VALIDAÇÕES ================================
 valorNum.addEventListener("keyup", function(e) {
@@ -22,17 +29,22 @@ valorNum.addEventListener("keyup", function(e) {
   if ([69].includes(e.keyCode)) {
     e.preventDefault();
   }
-  validacao();
+    validacao();
+//   validacaoBurra();
 });
 
 document.querySelector("#De").addEventListener("change", function(){
-    console.log("Mudei e vou zerar o campo numero");
     document.querySelector("#numero").value = "";
 });
 
+document.querySelector("#Para").addEventListener("change", function(){
+    document.querySelector("#resposta").value = "";
+    document.getElementById("resposta").innerHTML = "";
+});
 
-function validacao(){
-    var nBase = document.querySelector("#De").value;;
+
+function validacaoBurra(){
+    var nBase = document.querySelector("#De").value;
     
     if(nBase == "binario"){
         document.querySelector("#numero").value 
@@ -43,7 +55,19 @@ function validacao(){
     = document.querySelector("#numero").value.replace(/[^0-7]/g, "");
         console.log("regex 8");
     }
+}
+
+function validacao(){
+    var nomeBase = document.querySelector("#De").value;
+    var numeroBase = getBase(nomeBase);
+    numeroBase--;
     
+    var estringue = "^0-" + numeroBase;
+    
+    erGenerica = new RegExp('\[' + estringue + '\]', 'g'); 
+
+    document.querySelector("#numero").value 
+    = document.querySelector("#numero").value.replace(erGenerica, ""); 
     
 }
 
@@ -53,7 +77,7 @@ document.querySelector("#converter").addEventListener('click',
         var de = document.querySelector("#De").value; 
         var para = document.querySelector("#Para").value; 
         var numero = document.querySelector("#numero").value;
-
+        document.getElementById("resposta").innerHTML = "";
         seletor(de, para, numero);
 
         if( de == para){
