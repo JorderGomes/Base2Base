@@ -1,5 +1,18 @@
 // RESET
 
+class baseNumerica{
+    constructor(nome, base){
+        this.nome = nome;
+        this.base = base;
+    }
+}
+
+var bases = [
+    new baseNumerica("binario", 2), 
+    new baseNumerica("octal", 8), 
+    new baseNumerica("decimal", 10)
+];
+
 var valorNum = document.getElementById("numero");
 var erBinario = /[0-1]/;
 
@@ -8,16 +21,12 @@ valorNum.addEventListener("keyup", function(e) {
   if ([69].includes(e.keyCode)) {
     e.preventDefault();
   }
-  
   validacao();
-//   var nomeBase = document.querySelector("#De").value;
-//   var valorBase = 10, number;
+});
 
-//   if(nomeBase == "binario"){
-//     document.querySelector("#numero").value 
-//     = document.querySelector("#numero").value.replace(/[^0-1]/g, "");
-//   }
-
+document.querySelector("#De").addEventListener("change", function(){
+    console.log("Mudei e vou zerar o campo numero");
+    document.querySelector("#numero").value = "";
 });
 
 
@@ -45,30 +54,106 @@ document.querySelector("#converter").addEventListener('click',
         var para = document.querySelector("#Para").value; 
         var numero = document.querySelector("#numero").value;
 
-        if(de == "binario" && para == "decimal"){
-            var decimal = binToDec(numero);
-            document.getElementById("resposta").innerHTML = decimal;
-        }
-        else if(de == "decimal" && para == "binario"){
-            var binario = decToBin(numero);
-            console.log(binario);
-            var i, local;
-            for(i = 0; i < binario.length; i++){
-                local = document.getElementById("resposta").innerHTML;
-                local = local + binario[i];
-                document.getElementById("resposta").innerHTML = local;
-            }
+        seletor(de, para, numero);
 
-        }
-        else if( de == para){
+
+
+
+
+
+
+
+
+
+
+
+
+        // if(de == "binario" && para == "decimal"){
+        //     var decimal = binToDec(numero);
+        //     document.getElementById("resposta").innerHTML = decimal;
+        // }
+        // else if(de == "decimal" && para == "binario"){
+        //     var binario = decToBin(numero);
+        //     console.log(binario);
+        //     var i, local;
+        //     for(i = binario.length - 1; i >= 0; i--){
+        //         local = document.getElementById("resposta").innerHTML;
+        //         local = local + binario[i];
+        //         document.getElementById("resposta").innerHTML = local;
+        //     }
+
+        // }
+        // else if(de == "octal" && para == "decimal"){
+        //     var decimal = anyToDec(8, numero);
+        //     document.getElementById("resposta").innerHTML = decimal;
+        // }
+        // else if(de == "decimal" && para == "octal"){
+        //     var octal = decToAny(8, numero);
+        //     console.log(octal);
+        //     var i, local;
+        //     for(i = 0; i < octal.length; i++){
+        //         local = document.getElementById("resposta").innerHTML;
+        //         local = local + octal[i];
+        //         document.getElementById("resposta").innerHTML = local;
+        //     }
+        // }
+
+
+
+
+
+
+
+
+
+
+        
+        if( de == para){
             equalsTypes();
-        }
-        else{
-            alert("Error");
         }
         
     }
 );
+
+function seletor(de, para, numero){
+    var baseDe, basePara, conDecimal, conPara;
+    baseDe = getBase(de);
+    basePara = getBase(para);
+    
+    conDecimal = anyToDec(baseDe, numero);
+    conPara = decToAny(basePara, conDecimal);
+    // conPara.reverse();
+    gravarResposta(conPara);
+    
+    
+}
+
+
+function gravarResposta(lista){
+    var i, local;
+    for(i = lista.length - 1; i >= 0; i--){
+        local = document.getElementById("resposta").innerHTML;
+        local = local + lista[i];
+        document.getElementById("resposta").innerHTML = local;
+    }
+}
+
+function getBase(nomeBase){
+    var iterador;
+    for (iterador = 0; iterador < bases.length; iterador++){
+        if(nomeBase == bases[iterador].nome){
+            return bases[iterador].base;
+        }
+    }
+    return -1;
+}
+
+
+
+
+
+
+
 
 // Converter binario -> decimal
 function binToDec(bin){
@@ -91,16 +176,51 @@ function binToDec(bin){
 }
 
 
+function anyToDec(base, numero){
+    var array = [];
+    var digito, indiceDigito = 0, indiceExpoente, dec = 0, potBase;
+
+    while (numero > 0){
+        digito = numero % 10;
+        array.unshift(digito);
+        numero = parseInt(numero / 10);
+    }
+
+
+    for(indiceExpoente = array.length-1; indiceExpoente >= 0; indiceExpoente--){
+        potBase = Math.pow(base, indiceExpoente);
+        dec += array[indiceDigito] * potBase;
+        indiceDigito++;
+    }
+    return dec;
+}
+
+// Converter decimal para binario
 function decToBin(dec){
     var array = [];
      while (dec > 1) {
      array.push(dec % 2);
+    //  console.log("dec antes: " + dec);
      dec =  parseInt(dec / 2);
+    //  console.log("Array: " + array);
+    //  console.log("dec depois: " + dec);
     }
-    array.unshift(dec);
+    array.push(dec);
     
     return array;
 }
+
+function decToAny(base, numero){
+    var array = [];
+    while (numero > 1) {
+    array.push(numero % base);
+    numero =  parseInt(numero / base);
+   }
+   array.push(numero);
+   
+   return array;
+}
+
 
 function equalsTypes(){
     alert("Bases iguais");
