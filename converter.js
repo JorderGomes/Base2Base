@@ -1,4 +1,4 @@
-// RESET
+// ================================ RESET ================================
 
 class baseNumerica{
     constructor(nome, base){
@@ -16,6 +16,7 @@ var bases = [
 var valorNum = document.getElementById("numero");
 var erBinario = /[0-1]/;
 
+// ================================ VALIDAÇÕES ================================
 valorNum.addEventListener("keyup", function(e) {
   // prevent: "e"
   if ([69].includes(e.keyCode)) {
@@ -33,7 +34,6 @@ document.querySelector("#De").addEventListener("change", function(){
 function validacao(){
     var nBase = document.querySelector("#De").value;;
     
-
     if(nBase == "binario"){
         document.querySelector("#numero").value 
     = document.querySelector("#numero").value.replace(/[^0-1]/g, "");    
@@ -47,7 +47,7 @@ function validacao(){
     
 }
 
-// Dispachante
+// ================================ DISPACHANTE ================================
 document.querySelector("#converter").addEventListener('click', 
     function converter(){
         var de = document.querySelector("#De").value; 
@@ -56,58 +56,6 @@ document.querySelector("#converter").addEventListener('click',
 
         seletor(de, para, numero);
 
-
-
-
-
-
-
-
-
-
-
-
-
-        // if(de == "binario" && para == "decimal"){
-        //     var decimal = binToDec(numero);
-        //     document.getElementById("resposta").innerHTML = decimal;
-        // }
-        // else if(de == "decimal" && para == "binario"){
-        //     var binario = decToBin(numero);
-        //     console.log(binario);
-        //     var i, local;
-        //     for(i = binario.length - 1; i >= 0; i--){
-        //         local = document.getElementById("resposta").innerHTML;
-        //         local = local + binario[i];
-        //         document.getElementById("resposta").innerHTML = local;
-        //     }
-
-        // }
-        // else if(de == "octal" && para == "decimal"){
-        //     var decimal = anyToDec(8, numero);
-        //     document.getElementById("resposta").innerHTML = decimal;
-        // }
-        // else if(de == "decimal" && para == "octal"){
-        //     var octal = decToAny(8, numero);
-        //     console.log(octal);
-        //     var i, local;
-        //     for(i = 0; i < octal.length; i++){
-        //         local = document.getElementById("resposta").innerHTML;
-        //         local = local + octal[i];
-        //         document.getElementById("resposta").innerHTML = local;
-        //     }
-        // }
-
-
-
-
-
-
-
-
-
-
-        
         if( de == para){
             equalsTypes();
         }
@@ -115,19 +63,18 @@ document.querySelector("#converter").addEventListener('click',
     }
 );
 
+// ================================ SELEÇÃO DE BASE ================================
+
 function seletor(de, para, numero){
     var baseDe, basePara, conDecimal, conPara;
     baseDe = getBase(de);
     basePara = getBase(para);
-    
+
     conDecimal = anyToDec(baseDe, numero);
     conPara = decToAny(basePara, conDecimal);
-    // conPara.reverse();
-    gravarResposta(conPara);
-    
-    
-}
 
+    gravarResposta(conPara);
+}
 
 function gravarResposta(lista){
     var i, local;
@@ -155,26 +102,8 @@ function getBase(nomeBase){
 
 
 
-// Converter binario -> decimal
-function binToDec(bin){
-    var array = [];
-    var digito, indiceDigito = 0, indiceExpoente, dec = 0, potDois;
 
-    while (bin > 0){
-        digito = bin % 10;
-        array.unshift(digito);
-        bin = parseInt(bin / 10);
-    }
-
-
-    for(indiceExpoente = array.length-1; indiceExpoente >= 0; indiceExpoente--){
-        potDois = Math.pow(2, indiceExpoente);
-        dec += array[indiceDigito] * potDois;
-        indiceDigito++;
-    }
-    return dec;
-}
-
+// ================================ FUNCÕES DE CONVERSÃO ================================
 
 function anyToDec(base, numero){
     var array = [];
@@ -195,20 +124,6 @@ function anyToDec(base, numero){
     return dec;
 }
 
-// Converter decimal para binario
-function decToBin(dec){
-    var array = [];
-     while (dec > 1) {
-     array.push(dec % 2);
-    //  console.log("dec antes: " + dec);
-     dec =  parseInt(dec / 2);
-    //  console.log("Array: " + array);
-    //  console.log("dec depois: " + dec);
-    }
-    array.push(dec);
-    
-    return array;
-}
 
 function decToAny(base, numero){
     var array = [];
