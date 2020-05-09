@@ -20,8 +20,13 @@ body{
     padding: 5px;
 }
 
-.container{
+.container-8{
     width: 80%;
+    margin: auto;
+}
+
+.container-6{
+    width: 60%;
     margin: auto;
 }
 
@@ -49,14 +54,18 @@ body{
 
 
 .form-control-5{
-    width: 49%;
+    width: 45%;
 }
 
 .form-control-4{
     width: 44%;
 }
 
-
+.form-control{
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    max-height: 38px;
+}
 
 
 
