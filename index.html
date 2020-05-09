@@ -7,12 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Bootstrap CSS --> 
 
-  <link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css">
+  <!-- <link rel="stylesheet" href="node_modules/bootstrap/compiler/bootstrap.css"> -->
   
   <!-- Meu CSS -->
-  <link rel="stylesheet" href="node_modules/bootstrap/compiler/estilo.css">
+  <!-- <link rel="stylesheet" href="node_modules/bootstrap/compiler/estilo.css"> -->
+  <link rel="stylesheet" href="css/estilo.css">
 
-  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="css/font-awesome/css/all.css">
   <link rel="icon" href="img/arrows-radius.png">
   <title>Base2Base</title>
   
@@ -32,13 +33,13 @@
 
   <div class="container my-5">
 
-    <div class="row mb-5 justify-content-center"> <!-- linha formulario -->
-      <div class="col-sm-12 col-md-10 col-lg-8">
-  
+    <!-- <div class="row">  -->
+      <!-- linha formulario -->
+      <div class="f-box">
           <div class="form-row mb-3">
+            
 
-            <div class="from-group col-5 text-center">
-              <select class="form-control" id="De">
+              <select class="form-control-4" id="De">
                 <option selected>binario</option>
                 <option >base 3</option>
                 <option >base 4</option>
@@ -48,19 +49,13 @@
                 <option >octal</option>
                 <option >base 9</option>
                 <option >decimal</option>
-                
-                
               </select>
-            </div> <!-- fechando form-group -->
 
-            <div class="from-group col-2 text-center">
-              <button id="converter" class="btn btn-primary form-control">
-                 <i class="fa fa-exchange"></i>
+              <button id="converter" class="btn btn-primary form-control-1">
+                <i class="fas fa-exchange-alt"></i>
               </button>
-            </div> <!-- fechando form-group -->
 
-            <div class="from-group col-5 text-center">
-              <select class="form-control" id="Para">
+              <select class="form-control-4" id="Para">
                 <option >binario</option>
                 <option >base 3</option>
                 <option >base 4</option>
@@ -70,44 +65,30 @@
                 <option >octal</option>
                 <option >base 9</option>
                 <option selected>decimal</option>
-                
               </select>
-            </div> <!-- fechando form-group -->
-          
-          </div> <!-- fechando row -->
+           
+          </div> <!-- fechando form row mb 3 -->
 
           <div class="form-row mb-3">
-
-            <div class="from-group col-sm-6 mb-3">
-              <input type="number"  class="form-control" id="numero">
-            </div> <!-- fechando form-group -->
-
-            <div class="from-group col-sm-6">
-              <input type="number" class="form-control" disabled id="resposta">
-              <!-- <div id="resposta" class="form-control"></div> -->
-            </div> <!-- fechando form-group -->
-            
+              <input type="number"  class="form-control-5" id="numero">
+              <input type="number" class="form-control-5" disabled id="resposta">
           </div> <!-- fechando row -->
 
        
 
           </div> <!-- fechando linha -->
       </div> <!-- fechando coluna -->
-    </div> <!-- fechando linha formulario -->
+    <!-- </div> -->
+     <!-- fechando linha formulario -->
   </div> <!-- fechando container -->
 
 <!-- Fim formulario -->
  
 
 
-        <!-- Optional JavaScript -->
         
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="node_modules/popper.js/dist/umd/popper.js"></script>
-        <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-
-        <script src="converter.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/converter.js"></script>
         
 </body>
 

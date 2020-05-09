@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar{
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 5vh;
+    background-color: blue;
+    color: #fff;
+    margin-bottom: 50px;
+    padding: 5px;
+}
+
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.navbar-brand{
+    color: white;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+/*  */
+.f-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row{
+    display: flex;
+    margin-top: 15px;
+    justify-content: space-between;
+}
+
+.form-control-1{
+    width: 10%;
+}
+
+
+.form-control-5{
+    width: 49%;
+}
+
+.form-control-4{
+    width: 44%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*# sourceMappingURL=estilo.css.map */
+.scrollspySite{
+    position: relative;
+    overflow: auto; 
+    height: 250px;
+}
+
+#resposta{
+    min-height: 38px;
+}
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
