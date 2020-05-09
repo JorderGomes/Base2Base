@@ -110,12 +110,13 @@ input[type=number] {
 }
 
 @media screen and (max-width: 750px){
+
     .break{
         display: flex;
         flex-direction: column;
     }
     .break .form-control{
-        width: 100%;
+        width: 96%;
         margin-bottom: 5px;
     }
 }
