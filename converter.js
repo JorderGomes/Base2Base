@@ -39,7 +39,7 @@ document.querySelector("#De").addEventListener("change", function(){
 
 document.querySelector("#Para").addEventListener("change", function(){
     document.querySelector("#resposta").value = "";
-    document.getElementById("resposta").innerHTML = "";
+    // document.getElementById("respost").innerHTML = "";
 });
 
 
@@ -77,19 +77,19 @@ document.querySelector("#converter").addEventListener('click',
         var de = document.querySelector("#De").value; 
         var para = document.querySelector("#Para").value; 
         var numero = document.querySelector("#numero").value;
-        document.getElementById("resposta").innerHTML = "";
+        document.querySelector("#resposta").value = "";
+        // document.getElementById("respost").innerHTML = "";
         seletor(de, para, numero);
-
-        if( de == para){
-            equalsTypes();
-        }
-        
     }
 );
 
 // ================================ SELEÇÃO DE BASE ================================
 
 function seletor(de, para, numero){
+    if( de == para){
+        equalsTypes();
+        return;
+    }
     var baseDe, basePara, conDecimal, conPara;
     baseDe = getBase(de);
     basePara = getBase(para);
@@ -103,9 +103,9 @@ function seletor(de, para, numero){
 function gravarResposta(lista){
     var i, local;
     for(i = lista.length - 1; i >= 0; i--){
-        local = document.getElementById("resposta").innerHTML;
+        local = document.getElementById("resposta").value;
         local = local + lista[i];
-        document.getElementById("resposta").innerHTML = local;
+        document.getElementById("resposta").value = local;
     }
 }
 
@@ -132,7 +132,7 @@ function getBase(nomeBase){
 function anyToDec(base, numero){
     var array = [];
     var digito, indiceDigito = 0, indiceExpoente, dec = 0, potBase;
-
+    
     while (numero > 0){
         digito = numero % 10;
         array.unshift(digito);
@@ -145,18 +145,22 @@ function anyToDec(base, numero){
         dec += array[indiceDigito] * potBase;
         indiceDigito++;
     }
+    
     return dec;
 }
 
 
 function decToAny(base, numero){
     var array = [];
+    var correcaoSaida = numero;
     while (numero > 1) {
     array.push(numero % base);
     numero =  parseInt(numero / base);
    }
-   array.push(numero);
-   
+   if (correcaoSaida > base){
+        array.push(numero);
+   }
+   console.log(array);
    return array;
 }
 
