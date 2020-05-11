@@ -17,7 +17,7 @@ body{
     background-color: blue;
     color: #fff;
     margin-bottom: 50px;
-    padding: 10px;
+    padding: 10px 0px;
 }
 
 .container-8{
@@ -116,7 +116,7 @@ input[type=number] {
         flex-direction: column;
     }
     .break .form-control{
-        width: 96%;
+        width: 93%;
         margin-bottom: 5px;
     }
 }
